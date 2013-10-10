@@ -6,6 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 $script = <<'SCRIPT'
   echo I am provisioning
   sudo apt-get update
+  sudo apt-get install -y apache2
 SCRIPT
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -17,6 +18,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url = "http://files.vagrantup.com/precise64.box"
 
   # config.vm.network :forwarded_port, guest: 80, host: 8080
+  # Stanbol
+  config.vm.network :forwarded_port, guest: 8080, host: 8000
 
   # If true, then any SSH connections made will enable agent forwarding.
   # Default value: false
@@ -25,19 +28,34 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # Share an additional folder to the guest VM.
   # config.vm.synced_folder "../data", "/vagrant_data"
   #
-  config.vm.provision "shell", inline: $script
 
+  ## Provisioning
+  
+  # Chef
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = "chef/cookbooks"
+    chef.add_recipe "ohai"
+    chef.add_recipe "subversion"
     chef.add_recipe "ark"
     chef.add_recipe "java"
   end
+  
+  # Puppet
+  # config.vm.provision :puppet do |puppet|
+  #   puppet.manifests_path = "manifests"
+  #   puppet.manifest_file = "base.pp"
+  #   puppet.module_path = "modules"
+  # end
+
+  # Shell
+  config.vm.provision "shell", inline: $script  
+  
 
   config.vm.provider :virtualbox do |vb|
     # Don't boot with headless mode
     # vb.gui = true
   
-    # Use VBoxManage to customize the VM. For example to change memory:
-    vb.customize ["modifyvm", :id, "--memory", "256"]
+    # Use VBoxManage to customize the VM.
+    vb.customize ["modifyvm", :id, "--memory", "512"]
   end
 end
