@@ -38,8 +38,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.ssh.forward_agent = true
 
   # Share an additional folder to the guest VM.
-  # config.vm.synced_folder "../data", "/vagrant_data"
-  #
+  config.vm.synced_folder "data", "/vagrant/data"
+  
 
   ## Provisioning
   
