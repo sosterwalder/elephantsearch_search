@@ -13,21 +13,26 @@ It contains the following, additional software:
 
 ## How to build it
 First, get the repository:
+
     $ git clone https://github.com/sosterwalder/elephantsearch_search.git
 
 After getting the repository, initialize and update the submodules:
+
     $ git submodule update --init
 
 Then, start vagrant:
+
     $ vagrant up
 
 The first time this might take a while, as it updates the system and installs the software mentioned above.
 
 Log into the system, change to root:
+
     $ vagrant ssh
     vagrant@vagrant$ sudo su
 
 Next, build and run Apache Stanbol:
+
     # Set memory related values for the build process.
     # Maybe you need to increase them.. I had not always luck 
     # building it.
@@ -43,9 +48,11 @@ Next, build and run Apache Stanbol:
 First, make sure you don't have anything running on port 8000 (on your host).
 
 After building stanbol, you may run the stable launcher:
+
     root@vagrant$ java -Xmx1g -jar stable/target/org.apache.stanbol.launchers.stable-{snapshot-version}-SNAPSHOT.jar
 
 Or, if you prefer, run the full version:
+
     root@vagrant$ java -Xmx1g -XX:MaxPermSize=1024m -jar full/target/org.apache.stanbol.launchers.full-{snapshot-version}-SNAPSHOT.jar
 
 Now you should be able to access stanbol (within your host, not the vm running inside vagrant): http://localhost:8000
