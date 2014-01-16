@@ -41,7 +41,8 @@ Next, build and run Apache Stanbol:
     # Fetch the sources
     root@vagrant$ svn co http://svn.apache.org/repos/asf/stanbol/trunk stanbol
 
-    # Build stanbol. This could take quite some time (30min. plus..)
+    # Build stanbol. This could take quite some time (30min. plus..), grab
+    # a coffee and something to read.. :)
     root@vagrant$ mvn clean install
 
 ## Running it
@@ -49,10 +50,12 @@ First, make sure you don't have anything running on port 8000 (on your host).
 
 After building stanbol, you may run the stable launcher:
 
+    root@vagrant$ cd stanbol
     root@vagrant$ java -Xmx1g -jar stable/target/org.apache.stanbol.launchers.stable-{snapshot-version}-SNAPSHOT.jar
 
-Or, if you prefer, run the full version:
+Or, if you prefer, run the full version (more features.. chchch..):
 
+    root@vagrant$ cd stanbol
     root@vagrant$ java -Xmx1g -XX:MaxPermSize=1024m -jar full/target/org.apache.stanbol.launchers.full-{snapshot-version}-SNAPSHOT.jar
 
 Now you should be able to access stanbol (within your host, not the vm running inside vagrant): http://localhost:8000
