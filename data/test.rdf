@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF
+ xmlns="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:owl="http://www.w3.org/2002/07/owl#"
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+	<owl:Ontology about="">
+		<owl:imports rdf:resource="http://www.cnr.it/ontology/cnr/cnr.owl"/>
+	</owl:Ontology>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472">
+		<rdf:type rdf:resource="http://www.cnr.it/ontology/cnr/personale.owl#UnitaDiPersonaleInterno"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/rapportoConCNR/MATRICOLA11472">
+		<n0pred:rapportoConPersona rdf:resource="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472">
+		<n0pred:nome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ENRICO</n0pred:nome>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472">
+		<rdfs:label xml:lang="it">DOTT. ENRICO DAGA</rdfs:label>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://data.cnr.it/dataset/">
+		<void:exampleResource rdf:resource="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472">
+		<n0pred:cognome rdf:datatype="http://www.w3.org/2001/XMLSchema#string">DAGA</n0pred:cognome>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/strutturaGestionale/UO000.411">
+		<n0pred:haAfferente rdf:resource="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472">
+		<n0pred:personaInRapporto rdf:resource="http://www.cnr.it/ontology/cnr/individuo/rapportoConCNR/MATRICOLA11472"/>
+	</rdf:Description>
+	<rdf:Description rdf:about="http://www.cnr.it/ontology/cnr/individuo/unitaDiPersonaleInterno/MATRICOLA11472">
+		<n0pred:afferisceA rdf:resource="http://www.cnr.it/ontology/cnr/individuo/strutturaGestionale/UO000.411"/>
+	</rdf:Description>
+</rdf:RDF>

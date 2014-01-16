@@ -1,0 +1,41 @@
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+	xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#"
+	xmlns:foobar="http://www.foo.bar/reasoners/tehReasoner#" xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns="http://www.foo.bar/reasoners/tehReasoner#" xml:base="http://www.foo.bar/reasoners/tehReasoner#">
+
+	<!-- John Carmack is a developer, but we don't know anything else (except he's one of the best..) -->
+	<foobar:Developer rdf:about="#john_carmack">
+	</foobar:Developer>
+
+	<!-- a #SoftwareCompany is a kind of #Organization -->
+	<owl:Class rdf:about="SoftwareCompany">
+		<rdfs:subClassOf rdf:resource="#Organization" />
+	</owl:Class>
+
+	<!-- #IdSoftware is a kind of #SoftwareCompany -->
+	<owl:Class rdf:about="IdSoftware">
+		<rdfs:subClassOf rdf:resource="#SoftwareCompany" />
+	</owl:Class>
+
+	<!-- #Developers #worksAt some #IdSoftware -->
+	<owl:Class rdf:about="#Developer">
+		<rdfs:subClassOf>
+			<owl:restriction>
+				<owl:onProperty rdf:resource="#worksAt" />
+				<owl:someValuesFrom rdf:resource="#IdSoftware" />
+			</owl:restriction>
+		</rdfs:subClassOf>
+	</owl:Class>
+
+	<!-- Employees are all entities who #worksAt any kind of Organization (owl:equivalentClass) -->
+	<owl:Class rdf:about="#Employee">
+		<owl:equivalentClass>
+			<owl:restriction>
+				<owl:onProperty rdf:resource="#worksAt" />
+				<owl:someValuesFrom rdf:resource="#Organization" />
+			</owl:restriction>
+		</owl:equivalentClass>
+	</owl:Class>
+
+	<!-- We expect a reasoner to state that John Carmack is an #Employee -->
+</rdf:RDF>

@@ -1,0 +1,5 @@
+uncleRule[has(<http://www.foo.org/myont.owl#hasParent>, ?x, ?z) .
+          has(<http://www.foo.org/myont.owl#hasSibling>, ?z, ?y)
+             ->
+          has(<http://www.foo.org/myont.owl#hasUncle>, ?x, ?y)
+]
